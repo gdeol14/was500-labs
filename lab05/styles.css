@@ -1,0 +1,684 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #1a0026; 
+  color: #fff8dc; 
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #ffd700;
+  color: #1a0026;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+  outline: 2px solid #fff;
+}
+
+/* Header and footer */
+header, footer {
+  background: #3b0a45; 
+  text-align: center;
+  padding: 1em;
+  border-bottom: 2px solid #ffd700; 
+}
+
+footer {
+  border-top: 2px solid #ffd700;
+  border-bottom: none;
+  margin-top: 2em;
+}
+
+h1 {
+  color: #ffd700; 
+  font-size: 2.5em;
+  margin: 0 0 0.5em 0;
+}
+
+/* Navigation */
+nav {
+  background: #2d0833;
+  padding: 1em;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  color: #fff8dc;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-list a:hover {
+  background: #4b0055;
+  color: #ffd700;
+}
+
+.nav-list a:focus {
+  outline: 2px solid #ffd700;
+  background: #4b0055;
+  color: #ffd700;
+}
+
+.nav-list a[aria-current="page"] {
+  background: #ffd700;
+  color: #1a0026;
+  font-weight: bold;
+}
+
+/* Main container - column layout */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  padding: 2em;
+  width: 100%;
+}
+
+/* Individual cards */
+.card {
+  perspective: 1000px;
+  width: 200px;
+  height: 300px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card:focus {
+  outline: 3px solid #ffd700;
+  outline-offset: 4px;
+}
+
+.card.selected {
+  transform: scale(1.05);
+}
+
+.card.selected .card-front,
+.card.selected .card-back {
+  border: 4px solid #00ff00;
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 2px solid #ffd700; 
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.card-front {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-back {
+  background-color: #4b0055; 
+  color: #fff8dc; 
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+}
+
+.card-back h2 {
+  margin: 0 0 0.5em 0;
+  color: #ffec8b; 
+  font-size: 1.2em;
+}
+
+.card-back p {
+  margin: 0.2em 0;
+  font-size: 0.9em;
+}
+
+/* Site buttons */
+.siteBtn {
+  background-color: #ffd700;
+  color: #1a0026;
+  padding: 15px 30px;
+  text-align: center;
+  margin: 20px auto;
+  cursor: pointer;
+  border-radius: 8px;
+  max-width: 200px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1em;
+}
+
+.siteBtn:hover {
+  background-color: #ffec8b;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  transform: scale(1.05);
+}
+
+.siteBtn:focus {
+  outline: 3px solid #fff8dc;
+  outline-offset: 2px;
+}
+
+/* Greeting section */
+.greeting-section {
+  text-align: center;
+  margin: 30px auto;
+  max-width: 400px;
+  width: 100%;
+}
+
+.greeting-section label {
+  display: block;
+  margin-bottom: 10px;
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+#heroName {
+  padding: 12px;
+  margin: 10px;
+  border: 2px solid #ffd700;
+  border-radius: 5px;
+  width: 250px;
+  background-color: #2d0833;
+  color: #fff8dc;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+#heroName:focus {
+  outline: none;
+  border-color: #ffec8b;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+#greetMsg {
+  margin-top: 15px;
+  font-weight: bold;
+  min-height: 20px;
+  color: #ffec8b;
+  font-size: 1.1em;
+}
+
+/* LAB 4: Quest Styles
+
+/* Quests Section */
+.quests-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(59, 10, 69, 0.5);
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+}
+
+.quests-section h2 {
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.quests-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.quest-list-container,
+.quest-dropdown-container {
+  flex: 1;
+}
+
+.quest-list-container h3,
+.quest-dropdown-container h3 {
+  color: #ffec8b;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  padding: 12px;
+  margin: 8px 0;
+  background: #2d0833;
+  border: 2px solid #4b0055;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff8dc;
+}
+
+.task-item:hover {
+  background: #4b0055;
+  border-color: #ffd700;
+  transform: translateX(5px);
+}
+
+.task-item:focus {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+}
+
+.task-item.selected {
+  background: #4b0055;
+  border: 3px solid #00ff00;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  font-weight: bold;
+}
+
+/* Task Select Dropdown */
+.task-select {
+  width: 100%;
+  padding: 12px;
+  background: #2d0833;
+  color: #fff8dc;
+  border: 2px solid #ffd700;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-select:hover {
+  border-color: #ffec8b;
+}
+
+.task-select:focus {
+  outline: none;
+  border-color: #00ff00;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.task-select option {
+  background: #2d0833;
+  color: #fff8dc;
+  padding: 10px;
+}
+
+/* Quest Confirm Section */
+.quest-confirm-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(59, 10, 69, 0.5);
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.quest-confirm-section h2 {
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.quest-log {
+  padding: 20px;
+  margin: 20px 0;
+  background: #2d0833;
+  border: 2px solid #4b0055;
+  border-radius: 8px;
+  min-height: 60px;
+  font-size: 1.1em;
+  color: #ffec8b;
+  line-height: 1.8;
+}
+
+#confirmQuestBtn {
+  max-width: 250px;
+  font-size: 1.1em;
+}
+
+/* LAB 5: FORM STYLES
+
+/* Fellowship Section */
+.fellowship-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(59, 10, 69, 0.5);
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+}
+
+.fellowship-section h2 {
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+
+.section-intro {
+  text-align: center;
+  color: #ffec8b;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 1.05em;
+}
+
+.required {
+  color: #ff6b6b;
+  margin-left: 2px;
+}
+
+/* Form Inputs */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  background: #2d0833;
+  color: #fff8dc;
+  border: 2px solid #4b0055;
+  border-radius: 6px;
+  font-size: 1em;
+  font-family: 'Georgia', serif;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.form-group input:hover,
+.form-group select:hover {
+  border-color: #ffd700;
+}
+
+/* Valid and Invalid States */
+.form-group input.valid,
+.form-group select.valid {
+  border-color: #00ff00;
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.form-group input.invalid,
+.form-group select.invalid {
+  border-color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.05);
+}
+
+/* Error Messages */
+.error-message {
+  display: none;
+  color: #ff6b6b;
+  font-size: 0.9em;
+  margin-top: 6px;
+  padding: 8px;
+  background: rgba(255, 107, 107, 0.1);
+  border-left: 3px solid #ff6b6b;
+  border-radius: 4px;
+}
+
+/* Help Text */
+.help-text {
+  display: block;
+  color: #a8a8a8;
+  font-size: 0.85em;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.password-strength.weak {
+  background: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+}
+
+.password-strength.medium {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid #ffc107;
+}
+
+.password-strength.strong {
+  background: rgba(0, 255, 0, 0.2);
+  color: #00ff00;
+  border: 1px solid #00ff00;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  padding: 15px;
+  font-size: 1.15em;
+}
+
+/* Success Message */
+.success-message {
+  display: none;
+  margin-top: 25px;
+  padding: 20px;
+  background: rgba(0, 255, 0, 0.1);
+  border: 2px solid #00ff00;
+  border-radius: 8px;
+  color: #00ff00;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+  }
+  
+  .nav-list a {
+    display: block;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .main-container {
+    padding: 1em;
+  }
+  
+  .card-container {
+    padding: 1em;
+    gap: 1.5em;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  .siteBtn {
+    width: 80%;
+    max-width: 250px;
+  }
+  
+  #heroName {
+    width: 200px;
+  }
+
+  .quests-container {
+    flex-direction: column;
+  }
+
+  .quests-section,
+  .quest-confirm-section {
+    padding: 15px;
+  }
+
+  .fellowship-section {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .fellowship-section h2 {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    padding: 0.5em;
+  }
+  
+  .card {
+    max-width: 200px;
+    height: 280px;
+  }
+  
+  .card-back {
+    padding: 0.8em;
+  }
+  
+  .card-back h2 {
+    font-size: 1.1em;
+  }
+  
+  .card-back p {
+    font-size: 0.8em;
+  }
+
+  .task-item {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .quest-log {
+    padding: 15px;
+    font-size: 1em;
+  }
+
+  .fellowship-section {
+    padding: 15px;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-container {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .card-container {
+    max-width: 1200px;
+  }
+}

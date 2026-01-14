@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fellowship Registry - Middle-earth Legends</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⚔️ Fellowship Registry</h1>
+      <p>Middle-earth Legends Database</p>
+    </header>
+
+    <!-- Message Area -->
+    <div id="message" class="message hidden"></div>
+
+    <!-- Add Member Form -->
+    <section class="form-section">
+      <h2>Add New Member</h2>
+      <form id="memberForm">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required minlength="2" maxlength="50">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="age">Age *</label>
+          <input type="number" id="age" name="age" required min="13" max="999">
+        </div>
+
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role" name="role">
+            <option value="Ranger">Ranger</option>
+            <option value="Archer">Archer</option>
+            <option value="Warrior">Warrior</option>
+            <option value="Hobbit">Hobbit</option>
+            <option value="Wizard">Wizard</option>
+            <option value="Dwarf">Dwarf</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submitBtn">Add Member</button>
+        <button type="button" id="cancelBtn" class="hidden">Cancel Edit</button>
+      </form>
+    </section>
+
+    <!-- Members List -->
+    <section class="list-section">
+      <h2>Current Members</h2>
+      <div id="loading" class="loading hidden">Loading...</div>
+      <div id="membersList"></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

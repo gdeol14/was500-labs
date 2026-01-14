@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gate of Moria - Speak Friend and Enter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌙 The Gate of Moria 🌙</h1>
+      <p class="subtitle">Speak, Friend, and Enter</p>
+    </header>
+
+    <main>
+      <!-- Door visualization -->
+      <div class="door-container">
+        <div class="door closed" id="door">
+          <div class="runes">
+            <p>ᚠᚱᛁᛖᚾᛞ</p>
+            <p class="rune-subtitle">Speak the answer to enter</p>
+          </div>
+        </div>
+        <div class="door opened" id="doorOpen" style="display: none;">
+          <div class="door-content">
+            <h2>✨ The Doors Are Open ✨</h2>
+            <p>Welcome to the Mines of Moria</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat interface -->
+      <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+          <!-- Messages will appear here -->
+        </div>
+
+        <form class="chat-input-form" id="chatForm">
+          <input 
+            type="text" 
+            id="userInput" 
+            placeholder="Type your answer..." 
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="sendBtn">Send</button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p>Lab 10 - AI-Powered Chatbot Integration</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

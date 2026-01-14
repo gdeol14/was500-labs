@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avengers - Join</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="heroes.html" class="nav-link">Heroes</a></li>
+      <li><a href="join.html" class="nav-link active">Join</a></li>
+    </ul>
+  </nav>
+
+  <!-- Join Section -->
+  <section class="join-container">
+    <h1>Join the Avengers</h1>
+    
+    <form id="avengers-form" novalidate>
+      
+      <!-- Full Name Field -->
+      <div class="form-group">
+        <label for="full-name">Full Name <span class="required">*</span></label>
+        <input type="text" id="full-name" name="fullName" required>
+        <span class="error" id="name-error"></span>
+      </div>
+
+      <!-- Hero Alias Field -->
+      <div class="form-group">
+        <label for="hero-alias">Hero Alias <span class="required">*</span></label>
+        <input type="text" id="hero-alias" name="heroAlias" required>
+        <span class="error" id="alias-error"></span>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email" required>
+        <span class="error" id="email-error"></span>
+      </div>
+
+      <!-- Power Type Dropdown -->
+      <div class="form-group">
+        <label for="power-type">Power Type <span class="required">*</span></label>
+        <select id="power-type" name="powerType" required>
+          <option value="">-- Select a power type --</option>
+          <option value="tech">Tech</option>
+          <option value="strength">Strength</option>
+          <option value="magic">Magic</option>
+          <option value="stealth">Stealth</option>
+        </select>
+        <span class="error" id="power-error"></span>
+      </div>
+
+      <!-- Motivation Textarea -->
+      <div class="form-group">
+        <label for="motivation">Motivation (min 20 characters) <span class="required">*</span></label>
+        <textarea id="motivation" name="motivation" rows="5" required placeholder="Tell us why you want to join the Avengers..."></textarea>
+        <span class="error" id="motivation-error"></span>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn">Join the Avengers</button>
+    </form>
+
+    <!-- Quest Log (Success Message) -->
+    <div id="quest-log" class="quest-log hidden">
+      <h2>✓ Welcome, Hero!</h2>
+      <p id="success-message"></p>
+      <button onclick="document.getElementById('avengers-form').reset(); document.getElementById('quest-log').classList.add('hidden');" class="close-btn">Start New Application</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Gurmandeep Deol. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
